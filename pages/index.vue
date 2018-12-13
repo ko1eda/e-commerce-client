@@ -5,15 +5,7 @@
 </template>
 
 <script>
-
 export default {
-  components: {
-
-  }
-}
+  components: {},
+};
 </script>
-
-<style>
-
-</style>
- 
