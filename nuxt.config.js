@@ -27,7 +27,6 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    // '~/assets/css/tailwind.css',
     '~/assets/scss/app.scss'
   ],
 
@@ -44,11 +43,12 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios'
   ],
+
   /*
   ** Axios module configuration
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'http://localhost:80/api/v1'
   },
 
   watchers: {

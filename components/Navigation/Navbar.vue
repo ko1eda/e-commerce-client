@@ -1,12 +1,12 @@
 <template>
-  <nav class="navbar shadow tw-border-b tw-px-32">
+  <nav class="navbar shadow tw-border-b tw-px-4 xl:tw-px-32">
     <div class="navbar-brand">
-      <a class="navbar-item" href="#">
+      <nuxt-link :to="{name: 'index'}" tag="a" class="navbar-item">
         <div class="tw-relative">
           <div class="tw-rounded-full tw-border tw-border-grey-darker tw-w-16 tw-h-16 tw-mr-32 "/>
           <p class="logo-text tw-text-2xl">The Market</p>
         </div>
-      </a>
+      </nuxt-link>
       <div class="navbar-burger burger hover:tw-bg-transparent" data-target="">
         <span/>
         <span/>
