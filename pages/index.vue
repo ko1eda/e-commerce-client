@@ -1,11 +1,15 @@
 <template>
-  <div class="tw-w-full tw-h-screen">
-    <p class="tw-flex tw-h-full tw-justify-center tw-items-center">Test text</p>
+  <div class="">
+    <Navbar/>
   </div>
 </template>
 
 <script>
+import Navbar from '../components/Navigation/Navbar'
+
 export default {
-  components: {},
+  components: {
+    Navbar
+  },
 };
 </script>

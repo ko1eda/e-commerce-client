@@ -11,11 +11,17 @@
  */
  @tailwind preflight;
 
-
 html {
     color: config('colors.grey-darkest');
+    background: config('colors.white');
 }
 
+a {
+    text-decoration: none;
+}
+
+// Import bulma
+@import './bulma.scss';
 
  /**
   * This injects any component classes registered by plugins.
