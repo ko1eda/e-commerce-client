@@ -1,15 +1,4 @@
-/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- *
- * You can see the styles here:
- * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
- *
- * If using `postcss-import`, use this import instead:
- *
- * @import "tailwindcss/preflight";
- */
- @tailwind preflight;
+@tailwind preflight;
 
 html {
     color: config('colors.grey-darkest');
@@ -20,57 +9,42 @@ a {
     text-decoration: none;
 }
 
-// Import bulma
-@import './bulma.scss';
+// Import bulma utilities 
+@import "~bulma/sass/utilities/_all.sass";
 
- /**
-  * This injects any component classes registered by plugins.
-  *
-  * If using `postcss-import`, use this import instead:
-  *
-  * @import "tailwindcss/components";
-  */
- @tailwind components;
+
+// Any variables you want to change should go here (see import order issues here https://github.com/jgthms/bulma/issues/1651)
+// Bulma components use !important so all style overrides have to go before the component imports
+@import '../scss/bulma/navbar-override';
+
+
+@tailwind components;
  
- /**
-  * Here you would add any of your custom component classes; stuff that you'd
-  * want loaded *before* the utilities so that the utilities could still
-  * override them.
-  *
-  * Example:
-  *
-  * .btn { ... }
-  * .form-input { ... }
-  *
-  * Or if using a preprocessor or `postcss-import`:
-  *
-  * @import "components/buttons";
-  * @import "components/forms";
-  */
+// Bulma Compoents
+@import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/components/dropdown.sass";
+
+// Bulma Elements
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/form.sass";
+
+// Custom Components
+
+
+@tailwind utilities;
  
- 
- /**
-  * This injects all of Tailwind's utility classes, generated based on your
-  * config file.
-  *
-  * If using `postcss-import`, use this import instead:
-  *
-  * @import "tailwindcss/utilities";
-  */
- @tailwind utilities;
- 
- /**
-  * Here you would add any custom utilities you need that don't come out of the
-  * box with Tailwind.
-  *
-  * Example :
-  *
-  * .bg-pattern-graph-paper { ... }
-  * .skew-45 { ... }
-  *
-  * Or if using a preprocessor or `postcss-import`:
-  *
-  * @import "utilities/background-patterns";
-  * @import "utilities/skew-transforms";
-  */
+/**
+* Here you would add any custom utilities you need that don't come out of the
+* box with Tailwind.
+*
+* Example :
+*
+* .bg-pattern-graph-paper { ... }
+* .skew-45 { ... }
+*
+* Or if using a preprocessor or `postcss-import`:
+*
+* @import "utilities/background-patterns";
+* @import "utilities/skew-transforms";
+*/
  
