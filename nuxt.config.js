@@ -1,7 +1,7 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
 module.exports = {
-  mode: 'spa',
+  mode: 'universal',
 
   /*
   ** Headers of the page
@@ -48,7 +48,7 @@ module.exports = {
   ** Axios module configuration
   */
   axios: {
-    baseURL: 'http://localhost:80/api/v1'
+    baseURL: process.env.BASE_URL || 'http://localhost:80/api/v1/'
   },
 
   watchers: {
@@ -72,8 +72,8 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   }
-}
+};
