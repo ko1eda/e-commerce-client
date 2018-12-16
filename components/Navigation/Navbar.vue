@@ -21,24 +21,12 @@
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Categories</a>
           <div class="navbar-dropdown is-boxed">
-            <nuxt-link 
-              v-for="(category, index) in categories" 
-              v-if="category.children.length"
-              :key="category.children[index].slug" 
-              :to="{name: 'categories-slug', params: {slug: category.children[index].slug}}" 
-              tag="a" 
-              class="navbar-item">
-              <span class="tw-ml-2" v-text="category.children[index].name"/>
-            </nuxt-link> <!-- end child categories -->
-            
-            <nuxt-link 
-              v-for="category in categories" 
-              v-else
-              :key="category.slug" 
-              :to="{name: 'categories-slug', params: {slug: category.slug}}" 
-              tag="a" 
-              class="navbar-item" 
-              v-text="category.name"/>
+            <TreeList 
+              :items="categories.slice(1, categories.length + 1)" 
+              :offset="0" 
+              :depth="0" 
+              :name="categories[0].name" 
+              :slug="categories[0].slug"/>
           </div>
         </div><!-- end Categories drop down -->
       </div><!-- end navbar start -->
@@ -70,8 +58,12 @@
 
 <script>
 import {mapGetters} from 'vuex';
+import TreeList from '../Shared/TreeList/TreeList';
 export default {
 
+  components : {
+    TreeList
+  },
   computed : {
     ...mapGetters({
       categories : 'categories' 
