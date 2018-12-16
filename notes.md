@@ -11,6 +11,11 @@
 + https://github.com/nuxt/nuxt.js/issues/240 
 + Difference between client and server side rendering
 
+
+## Recursive componets with vue (TreeList was adopted from this)
++ https://vuejsdevelopers.com/2017/10/23/vue-js-tree-menu-recursive-components/
++ Recursive scoped slots https://forum.vuejs.org/t/recursive-scoped-slots/8220
+
 ### Misc.
  + Color palette ideas -> http://paletton.com/#uid=53i0u0kivyw8vRNdTIbmqthrepB
  + Setting up eslint with nuxt 

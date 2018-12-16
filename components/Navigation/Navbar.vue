@@ -24,7 +24,8 @@
             <TreeList 
               :items="categories.slice(1, categories.length + 1)" 
               :offset="0" 
-              :depth="0" 
+              :depth="0"
+              :route-name="'categories-slug'"
               :name="categories[0].name" 
               :slug="categories[0].slug"/>
           </div>
@@ -58,9 +59,8 @@
 
 <script>
 import {mapGetters} from 'vuex';
-import TreeList from '../Shared/TreeList/TreeList';
+import TreeList from './NestedDropdown';
 export default {
-
   components : {
     TreeList
   },
