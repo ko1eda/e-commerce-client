@@ -16,14 +16,32 @@
 
     <div id="" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="#">Home</a>
+        <nuxt-link :to="{name: 'index'}" tag="a" class="navbar-item" v-text="'Home'" />
+        
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Categories</a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="#">Overview</a>
+            <nuxt-link 
+              v-for="(category, index) in categories" 
+              v-if="category.children.length"
+              :key="category.children[index].slug" 
+              :to="{name: 'categories-slug', params: {slug: category.children[index].slug}}" 
+              tag="a" 
+              class="navbar-item">
+              <span class="tw-ml-2" v-text="category.children[index].name"/>
+            </nuxt-link> <!-- end child categories -->
+            
+            <nuxt-link 
+              v-for="category in categories" 
+              v-else
+              :key="category.slug" 
+              :to="{name: 'categories-slug', params: {slug: category.slug}}" 
+              tag="a" 
+              class="navbar-item" 
+              v-text="category.name"/>
           </div>
-        </div>
-      </div>
+        </div><!-- end Categories drop down -->
+      </div><!-- end navbar start -->
 
       <div class="navbar-end">
 
@@ -51,7 +69,16 @@
 </template>
 
 <script>
-export default {};
+import {mapGetters} from 'vuex';
+export default {
+
+  computed : {
+    ...mapGetters({
+      categories : 'categories' 
+    })
+  },
+
+};
 </script>
 
 <style lang="scss" scoped>
