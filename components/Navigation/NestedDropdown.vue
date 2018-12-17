@@ -7,7 +7,7 @@
       <span :class="'tw-ml-' + depth" v-text="name"/>
     </nuxt-link>
     
-    <TreeList v-for="item in items" :key="item.slug" :items="item.children" :depth="depth + offset" :name="item.name" :slug="item.slug" :offset="2"/>                 
+    <TreeList v-for="item in items" :key="item.slug" :items="item.children" :depth="depth + offset" :name="item.name" :slug="item.slug" :offset="2" route-name="categories-slug"/>                 
   </div>
 </template>
 
