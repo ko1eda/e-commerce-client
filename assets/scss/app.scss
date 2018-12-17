@@ -1,13 +1,20 @@
 @tailwind preflight;
+// Load in any fonts here
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700');
 
 html {
     color: config('colors.grey-darkest');
     background: config('colors.white');
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 400;
 }
 
 a {
     text-decoration: none;
 }
+
+
 
 // Import bulma utilities 
 @import "~bulma/sass/utilities/_all.sass";
@@ -16,6 +23,7 @@ a {
 // Any variables you want to change should go here (see import order issues here https://github.com/jgthms/bulma/issues/1651)
 // Bulma components use !important so all style overrides have to go before the component imports
 @import '../scss/bulma/navbar-override';
+
 
 
 @tailwind components;
