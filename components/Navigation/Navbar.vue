@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar tw-border-b tw-px-4 xl:tw-px-12">
+  <nav class="navbar tw-border-b tw-px-4 xl:tw-px-12 is-fixed-top">
     <div class="navbar-brand">
       <nuxt-link :to="{name: 'index'}" tag="a" class="navbar-item tw-px-0 tw-text-orange-primary">
         <div class="tw-relative">
