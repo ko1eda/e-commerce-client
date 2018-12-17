@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar shadow tw-border-b tw-px-4 xl:tw-px-32">
+  <nav class="navbar tw-border-b tw-px-4 xl:tw-px-12">
     <div class="navbar-brand">
-      <nuxt-link :to="{name: 'index'}" tag="a" class="navbar-item">
+      <nuxt-link :to="{name: 'index'}" tag="a" class="navbar-item tw-px-0 tw-text-orange-primary">
         <div class="tw-relative">
           <div class="tw-rounded-full tw-border tw-border-grey-darker tw-w-16 tw-h-16 tw-mr-32 "/>
           <p class="logo-text tw-text-2xl tw-font-semibold">The Market</p>
@@ -33,19 +33,30 @@
       </div><!-- end navbar start -->
 
       <div class="navbar-end">
-
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">Username</a>
-          <div class="navbar-dropdown is-boxed">
+          <a class="navbar-link">
+            Username
+          </a>
+
+          <div class="navbar-dropdown is-boxed is-right ">
             <a class="navbar-item" href="#">Order History</a>
             <hr class="navbar-divider">
             <a class="navbar-item" href="#">Sign out</a>
           </div>
         </div>
 
+        <!-- <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Username</a>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="#">Order History</a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="#">Sign out</a>
+          </div>
+        </div> -->
+
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Cart</a>
-          <div class="navbar-dropdown is-boxed">
+          <div class="navbar-dropdown is-boxed is-right">
             <a class="navbar-item" href="#">Item 1</a>
             <hr class="navbar-divider">
             <a class="navbar-item" href="#">Total: $15.99</a>
