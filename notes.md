@@ -17,7 +17,7 @@
 + Recursive scoped slots https://forum.vuejs.org/t/recursive-scoped-slots/8220
 
 ### Misc.
- + Color palette ideas -> http://paletton.com/#uid=53i0u0kivyw8vRNdTIbmqthrepB
+ + Color palette ideas -> http://paletton.com/#uid=73U260kiEH08cVSdVOZmHzfrtuj
  + Setting up eslint with nuxt 
     + https://medium.com/@doppelmutzi/eslint-prettier-vue-workflow-46a3cf54332f
     + https://nuxtjs.org/guide/development-tools/#eslint-and-prettier

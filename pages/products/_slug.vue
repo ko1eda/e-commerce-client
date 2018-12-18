@@ -17,9 +17,14 @@
       <div class="column"/>
       <div class="column tw-mt-1"/>
       <div class="tw-px-2">
+        <p class="tw-text-xl">Price</p>
+        <hr class="tw-my-2 tw-mx-0 tw-bg-grey-light tw-h-1 img-width">
+        <span class="tag is-large tw-font-sans tw-rounded-lg tw-bg-green-primary tw-text-white">$ {{ product.price }}</span>
+      </div>
+      <div class="tw-px-2 tw-mt-20">
         <p class="tw-text-xl">Options</p>
         <hr class="tw-my-2 tw-mx-0 tw-bg-grey-light tw-h-1 img-width">
-        <div v-text="$route.params.slug"/>
+        <span class="tag is-large tw-font-sans tw-rounded-lg">{{ $route.params.slug }}</span>
       </div>
     </div>
   

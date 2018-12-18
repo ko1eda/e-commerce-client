@@ -49,6 +49,7 @@ let colors = {
   'purp-primary': '#5672B1',
   'purp-secondary': '#7E96CD',
   'orange-primary' : '#FFAA4A',
+  'green-primary' : '#53C6AC',
 
   'black': '#22292f',
   'grey-darkest': '#3d4852',
@@ -131,7 +132,7 @@ let colors = {
   'pink-light': '#fa7ea8',
   'pink-lighter': '#ffbbca',
   'pink-lightest': '#ffebef',
-}
+};
 
 module.exports = {
 
@@ -949,8 +950,7 @@ module.exports = {
 
   options: {
     prefix: 'tw-',
-    important: false,
+    important: true,
     separator: ':',
   },
-
-}
+};
