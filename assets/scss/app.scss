@@ -32,7 +32,10 @@ a {
 @import "~bulma/sass/components/navbar.sass";
 @import "~bulma/sass/components/dropdown.sass";
 
-// Bulma layout
+
+// Bulma layout and grid
+@import "~bulma/sass/grid/_all.sass";
+
 
 // Bulma Elements
 @import "~bulma/sass/elements/button.sass";
