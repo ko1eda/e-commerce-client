@@ -2,7 +2,9 @@
   <div>
     <Navbar/>
     <div class="tw-px-8 tw-py-12 xl:tw-p-12">
-      <nuxt/>
+      <div class="container">
+        <nuxt/>
+      </div>
     </div>
   </div>
 </template>
