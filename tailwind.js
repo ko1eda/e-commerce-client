@@ -50,6 +50,7 @@ let colors = {
   'purp-secondary': '#7E96CD',
   'orange-primary' : '#FFAA4A',
   'green-primary' : '#53C6AC',
+  'green-secondary' : '#56CA85',
 
   'black': '#22292f',
   'grey-darkest': '#3d4852',
