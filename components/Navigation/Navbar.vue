@@ -21,13 +21,27 @@
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Categories</a>
           <div class="navbar-dropdown is-boxed">
-            <TreeList 
-              :items="categories.slice(1, categories.length + 1)" 
-              :offset="0" 
-              :depth="0"
-              :route-name="'categories-slug'"
-              :name="categories[0].name" 
-              :slug="categories[0].slug"/>
+            <template v-for="(category, index) in categories">
+              <template v-if="category.children"><!-- if a category has children, create them recusrively, else just print them normally -->
+                <TreeList 
+                  :key="index"
+                  :items="category.children" 
+                  :offset="2" 
+                  :depth="0"
+                  :route-name="'categories-slug'"
+                  :name="category.name" 
+                  :slug="category.slug"/>
+              </template>
+              <template v-else>
+                <nuxt-link
+                  :key="index"
+                  :to="{name: catgory.name, params: {slug: category.slug}}" 
+                  tag="a" 
+                  class="navbar-item">
+                  <span v-text="category.name"/>
+                </nuxt-link>
+              </template>
+            </template>
           </div>
         </div><!-- end Categories drop down -->
       </div><!-- end navbar start -->
@@ -44,15 +58,6 @@
             <a class="navbar-item" href="#">Sign out</a>
           </div>
         </div>
-
-        <!-- <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">Username</a>
-          <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="#">Order History</a>
-            <hr class="navbar-divider">
-            <a class="navbar-item" href="#">Sign out</a>
-          </div>
-        </div> -->
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Cart</a>
@@ -81,6 +86,8 @@ export default {
     })
   },
 
+  
+
 };
 </script>
 
@@ -94,4 +101,5 @@ export default {
   top: 14px;
   left: 16px;
 }
+
 </style>
