@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar/>
-    <div class="tw-px-8 tw-py-12 xl:tw-p-12">
+    <div class="tw-px-8 tw-py-8 lg:tw-p-12">
       <div class="container">
         <nuxt/>
       </div>

@@ -5,23 +5,20 @@
         <p class="tw-text-2xl"> {{ product.name }} </p>
         <hr class="tw-my-2 tw-mx-0 tw-bg-orange-primary tw-h-1 img-width">
         <p class="tw-text-xl"> {{ product.description }} </p>
-        <div class="tw-mt-4">
+        <div class="tw-mt-4 md:tw-flex md:tw-justify-center md:tw-items-start lg:tw-justify-start">
+          <!-- align the image center on ipad size and make sure it isnt stretching down the y axis with flex-items-start -->
           <img :src="product.image_path">
         </div>
       </div>
     </div><!-- end image column -->
   
     <div class="column">
-      <div class="column"/>
-      <div class="column"/>
-      <div class="column"/>
-      <div class="column tw-mt-1"/>
-      <div class="tw-px-2">
+      <div class="tw-px-2 tw-mt-8 lg:tw-mt-16">
         <p class="tw-text-xl">Price</p>
         <hr class="tw-my-2 tw-mx-0 tw-bg-grey-light tw-h-1 img-width">
         <span class="tag is-large tw-font-sans tw-rounded-lg tw-bg-green-primary tw-text-white">$ {{ product.price }}</span>
       </div>
-      <div class="tw-px-2 tw-mt-20">
+      <div class="tw-px-2 tw-mt-8 lg:tw-mt-16">
         <p class="tw-text-xl">Options</p>
         <hr class="tw-my-2 tw-mx-0 tw-bg-grey-light tw-h-1 img-width">
         <span class="tag is-large tw-font-sans tw-rounded-lg">{{ $route.params.slug }}</span>
@@ -51,8 +48,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import '~bulma/sass/utilities/mixins.sass';
+
   .img-width {
-    width: 620px;
+     @include mobile {
+        // width: 620px;
+        width: 100%;
+     }
+
+     @include desktop {
+        width: 620px;
+     }
   }
 </style>
