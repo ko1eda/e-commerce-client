@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Slider @slide-left="setGridSize(3)" @slide-right="onSlide(4)">
+    <Slider @slide-left="setGridSize(3)" @slide-right="setGridSize(4)">
+      
       <template slot="side-left">
         <template v-if="gridSize() === 3" >
           <span class="tw-text-sm tw-font-bold tw-bg-orange-primary tw-rounded tw-inline-block tw-h-3 tw-w-3 tw-mt-1 tw-mr-1"/>
@@ -96,13 +97,8 @@ export default {
     }),
 
     ...mapActions({
-      setGridSize: 'setGridSize' // map `this.add()` to `this.$store.dispatch('increment')`
+      setGridSize: 'setGridSize'
     }),
-
-    onSlide(size) {
-      console.log('called');
-      this.setGridSize(size);
-    }
 
   },
 
@@ -150,7 +146,4 @@ export default {
     position: absolute;
     opacity: 0;
   }
-
- 
-
 </style>

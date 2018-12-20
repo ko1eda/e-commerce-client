@@ -40,14 +40,12 @@ export const mutations = {
 export const actions = {
   async nuxtServerInit({ commit }, { $axios }) {
     let {data} = await $axios.$get('categories');
-
-    console.log('called');
     
     commit('SET_CATEGORIES', data);
   },
 
   setGridSize({commit}, size) {
-    console.log('called');
+
     commit('SET_GRID_SIZE', size);
   }
 };

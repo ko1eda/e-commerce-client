@@ -7,8 +7,8 @@
       </div>
       <!-- end left side toggle -->
 
-      <div :class="slideStyles" @click="toggle">
-        <span class="tw-rounded-full tw-bg-grey tw-border tw-border-grey-dark tw-h-6 tw-w-6 tw-inline-block tw-cursor-pointer"/>
+      <div class="tw-border tw-w-12 tw-h-6 tw-rounded-full tw-flex tw-items-center tw-bg-grey-light " @click="toggle">
+        <span :style="sliderStyles" class="tw-rounded-full tw-border tw-bg-grey tw-border-grey-dark tw-h-6 tw-w-6 tw-inline-block tw-cursor-pointer"/>
       </div>
       <!-- end slider -->
 
@@ -22,11 +22,12 @@
 </template>
 
 <script>
-import SliderMixin from '@/components/Shared/Mixins/Slider.js';
+import SliderMixin from '@/components/Shared/Slider/Slider.js';
 
 export default {
   mixins: [SliderMixin],
 
+  // Set the starting side based on the global gridSize or the StartLeft value
   created() {
     let left = this.$store.getters.gridSize === 3 ? true : false;
 
@@ -38,5 +39,6 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+
 </style>

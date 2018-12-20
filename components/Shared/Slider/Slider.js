@@ -8,23 +8,28 @@ export default {
 
   data() {
     return {
-      isLeft: this.startLeft
+      isLeft: this.startLeft,
     };
   },
 
   /**
-   * slideStyles: if it is not set to left, then
-   *  justify it to the right
+   * sliderStyles: the transformation style
+   *  and transition style for when the slider is moved
    *
-   * 
    */
   computed: {
-    slideStyles() {
-      return [
-        'tw-border tw-w-12 tw-h-6 tw-rounded-full tw-flex tw-items-center tw-bg-grey-light',
-        !this.isLeft && 'tw-justify-end'
-      ];
+    sliderStyles() {
+      let obj = {
+        transition: 'all 600ms cubic-bezier(0.23, 1, 0.32, 1)'
+      };
+
+      if(! this.isLeft) {
+        obj.transform = 'translateX(1.5rem)';
+      }
+
+      return obj;
     }
+
   },
 
   /**
