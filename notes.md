@@ -16,6 +16,9 @@
 + https://vuejsdevelopers.com/2017/10/23/vue-js-tree-menu-recursive-components/
 + Recursive scoped slots https://forum.vuejs.org/t/recursive-scoped-slots/8220
 
+# Building the grid slider component
++ https://alligator.io/vuejs/component-lifecycle/
+
 ### Misc.
  + Color palette ideas -> http://paletton.com/#uid=73U260kiEH08cVSdVOZmHzfrtuj
  + Setting up eslint with nuxt 

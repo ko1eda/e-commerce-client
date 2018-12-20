@@ -49,6 +49,8 @@ let colors = {
   'purp-primary': '#5672B1',
   'purp-secondary': '#7E96CD',
   'orange-primary' : '#FFAA4A',
+  'orange-secondary' : '#FFCE98',
+  
   'green-primary' : '#53C6AC',
   'green-secondary' : '#56CA85',
 

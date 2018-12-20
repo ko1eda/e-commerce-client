@@ -1,5 +1,6 @@
 export const state = () => ({
-  categories: []
+  categories: [],
+  gridSize : 3
 });
 
 /**
@@ -7,7 +8,8 @@ export const state = () => ({
  * 
  */
 export const getters = {
-  categories: state => state.categories
+  categories: (state) => state.categories,
+  gridSize: (state) => state.gridSize
 };
 
 /**
@@ -18,6 +20,10 @@ export const getters = {
 export const mutations = {
   SET_CATEGORIES (state, categories) {
     state.categories = categories;
+  },
+
+  SET_GRID_SIZE (state, size) {
+    state.gridSize = size;
   }
 };
 
@@ -38,5 +44,10 @@ export const actions = {
     console.log('called');
     
     commit('SET_CATEGORIES', data);
+  },
+
+  setGridSize({commit}, size) {
+    console.log('called');
+    commit('SET_GRID_SIZE', size);
   }
 };
