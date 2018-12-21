@@ -99,29 +99,32 @@ export default {
     * Used with height computer property
     * These set the correct min and max height 
     * regardless of screen size 
+    * 18.75 rem = 300px
+    * 25 rem = 400px
   */
   .min-h-300 {
-    min-height: 300px;
+    min-height: 18.75rem;
   }
   .min-h-400 {
-    min-height: 400px;
+    min-height: 25rem;
     @include mobile {
-      min-height: 300px;
+      min-height: 18.75rem;
     }
   }
   .max-h-300 {
-    max-height: 300px;
+    max-height: 18.75rem;
   }
 
   .max-h-400 {
-    max-height: 400px;
+    max-height: 25rem;
     @include mobile {
-      max-height: 300px;
+      max-height: 18.75rem;
     }
   }
+  // Set the max width of the images to 400
   .max-w {
    @include mobile {
-      max-width: 300px;
+      max-width: 25rem;
     }
   }
   
