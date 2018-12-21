@@ -18,6 +18,8 @@
 
 # Building the grid slider component
 + https://alligator.io/vuejs/component-lifecycle/
++ https://stackoverflow.com/questions/48381670/vuejs-transform-rotate-style-inline
++ https://stackoverflow.com/questions/40408096/whats-the-correct-way-to-pass-props-as-initial-data-in-vue-js-2
 
 ### Misc.
  + Color palette ideas -> http://paletton.com/#uid=73U260kiEH08cVSdVOZmHzfrtuj
