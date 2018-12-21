@@ -23,6 +23,7 @@ a {
 // Any variables you want to change should go here (see import order issues here https://github.com/jgthms/bulma/issues/1651)
 // Bulma components use !important so all style overrides have to go before the component imports
 @import '../scss/bulma/navbar-override';
+@import '../scss/bulma/breadcrumb-override';
 
 
 
@@ -31,6 +32,7 @@ a {
 // Bulma Compoents
 @import "~bulma/sass/components/navbar.sass";
 @import "~bulma/sass/components/dropdown.sass";
+@import "~bulma/sass/components/breadcrumb.sass";
 
 
 // Bulma layout and grid

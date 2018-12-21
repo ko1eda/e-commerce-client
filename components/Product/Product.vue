@@ -1,6 +1,6 @@
 <template>
   <div class="tw-max-w-sm tw-overflow-hidden hover:tw-shadow-lg tw-shadow trans-shadow trans-overlay tw-cursor-pointer tw-border tw-border-grey-light">
-    <div :class="['tw-w-full tw-relative max-w', height]">
+    <div :class="['tw-w-full tw-relative', height]">
       <div class="overlay tw-absolute tw-w-full tw-h-full"/>
 
       <div class="tw-flex tw-justify-center tw-items-center tw-absolute tw-w-full tw-h-full">
