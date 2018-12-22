@@ -7,7 +7,7 @@
         <p class="tw-text-xl"> {{ product.description }} </p>
         <div class="tw-mt-4 md:tw-flex md:tw-justify-center md:tw-items-start lg:tw-justify-start">
           <!-- align the image center on ipad size and make sure it isnt stretching down the y axis with flex-items-start -->
-          <img :src="product.image_path">
+          <img :src="product.image_path" class="img-size">
         </div>
       </div>
     </div><!-- end image column -->
