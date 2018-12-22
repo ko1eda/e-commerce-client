@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="{name: 'products-slug', params: {slug:product.slug}}" tag:="div" class="tw-text-grey-darker">
+  <nuxt-link :to="{name: 'products-slug', params: {slug:product.slug}}" tag:="div" class="tw-text-grey-darkest">
     <div class="tw-max-w-sm tw-overflow-hidden hover:tw-shadow-lg tw-shadow trans-shadow trans-overlay tw-cursor-pointer tw-border tw-border-grey-light">
       <div :class="['tw-w-full tw-relative', height]">
         <div class="overlay tw-absolute tw-w-full tw-h-full"/>
