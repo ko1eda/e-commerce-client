@@ -106,12 +106,14 @@ export default {
      // For each breadcrumb in the array ex: ['', 'categories', 'shoes']
      // If it is not in the list of paths to display, return false : true
       return this.breadcrumbs.some((crumb, index) => {
+        // adds a '/' in front to match the paths in sliderDispalyPaths
+        crumb += '/';
+
         // Loop through each allowd slider path,
         // If one of the parts of the route is in this path
         // it will return a match, and the slider will be hidden
         return this.sliderDisplayPaths.some((path, index) => {
           if(path === crumb ) return true;
-
           return false;
         });
       });
