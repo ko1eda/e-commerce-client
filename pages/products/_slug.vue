@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-variable is-6">
+  <div class="columns is-variable is-8">
     <div class="column">
       <div class="tw-">
         <p class="tw-text-2xl"> {{ product.name }} </p>
@@ -7,7 +7,9 @@
         <p class="tw-text-xl"> {{ product.description }} </p>
         <div class="tw-mt-4 ">
           <!-- align the image center on ipad size and make sure it isnt stretching down the y axis with flex-items-start -->
-          <img :src="product.image_path" class="img-width img-height">
+          <figure class="image is-4by3">
+            <img :src="product.image_path">
+          </figure>
         </div>
       </div>
     </div><!-- end image column -->
@@ -52,16 +54,10 @@ export default {
 @import '~bulma/sass/utilities/mixins.sass';
   .img-width {
      @include mobile {
-        // width: 620px;
         width: 100%;
      }
-
      @include desktop {
-        width: 620px;
+        width: 640px;
      }
-  }
-
-  .img-height {
-    height: 465px;
   }
 </style>
