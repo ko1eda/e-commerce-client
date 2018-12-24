@@ -5,9 +5,9 @@
         <p class="tw-text-2xl"> {{ product.name }} </p>
         <hr class="tw-my-2 tw-mx-0 tw-bg-orange-primary tw-h-1 img-width">
         <p class="tw-text-xl"> {{ product.description }} </p>
-        <div class="tw-mt-4">
+        <div class="tw-mt-4 ">
           <!-- align the image center on ipad size and make sure it isnt stretching down the y axis with flex-items-start -->
-          <img :src="product.image_path" class="img-width">
+          <img :src="product.image_path" class="img-width img-height">
         </div>
       </div>
     </div><!-- end image column -->
@@ -50,7 +50,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '~bulma/sass/utilities/mixins.sass';
-
   .img-width {
      @include mobile {
         // width: 620px;
@@ -60,5 +59,9 @@ export default {
      @include desktop {
         width: 620px;
      }
+  }
+
+  .img-height {
+    height: 465px;
   }
 </style>
