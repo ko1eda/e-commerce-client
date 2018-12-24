@@ -1,7 +1,7 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
 module.exports = {
-  mode: 'spa',
+  mode: 'universal',
 
   /*
   ** Headers of the page
@@ -27,7 +27,6 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    // '~/assets/css/tailwind.css',
     '~/assets/scss/app.scss'
   ],
 
@@ -35,6 +34,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    './plugins/endpoints.js'
   ],
 
   /*
@@ -44,11 +44,12 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios'
   ],
+
   /*
   ** Axios module configuration
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: process.env.BASE_URL || 'http://localhost:80/api/v1/'
   },
 
   watchers: {
@@ -72,8 +73,8 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   }
-}
+};

@@ -1,11 +1,11 @@
 <template>
-  <div class="tw-w-full tw-h-screen">
-    <p class="tw-flex tw-h-full tw-justify-center tw-items-center">Test text</p>
-  </div>
+  <div class=""/>
 </template>
 
 <script>
+
 export default {
-  components: {},
+  components: {
+  },
 };
 </script>

@@ -46,6 +46,14 @@ View the full documentation at https://tailwindcss.com.
 let colors = {
   'transparent': 'transparent',
 
+  'purp-primary': '#5672B1',
+  'purp-secondary': '#7E96CD',
+  'orange-primary' : '#FFAA4A',
+  'orange-secondary' : '#FFCE98',
+  
+  'green-primary' : '#53C6AC',
+  'green-secondary' : '#56CA85',
+
   'black': '#22292f',
   'grey-darkest': '#3d4852',
   'grey-darker': '#606f7b',
@@ -127,7 +135,7 @@ let colors = {
   'pink-light': '#fa7ea8',
   'pink-lighter': '#ffbbca',
   'pink-lightest': '#ffebef',
-}
+};
 
 module.exports = {
 
@@ -168,9 +176,10 @@ module.exports = {
 
   screens: {
     'sm': '576px',
-    'md': '768px',
-    'lg': '992px',
-    'xl': '1200px',
+    'md': '769px',
+    'lg': '1024px',
+    'xl': '1216px',
+    'hd' : '1408px'
   },
 
 
@@ -532,6 +541,9 @@ module.exports = {
     '32': '8rem',
     '48': '12rem',
     '64': '16rem',
+    '80': '20rem',
+    '96': '24rem',
+    '112': '28rem',
     'full': '100%',
     'screen': '100vh'
   },
@@ -594,7 +606,8 @@ module.exports = {
   */
 
   maxWidth: {
-    'xs': '20rem',
+    '2xs': '20rem',
+    'xs': '25rem',
     'sm': '30rem',
     'md': '40rem',
     'lg': '50rem',
@@ -944,8 +957,7 @@ module.exports = {
 
   options: {
     prefix: 'tw-',
-    important: false,
+    important: true,
     separator: ':',
   },
-
-}
+};
