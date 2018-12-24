@@ -1,13 +1,13 @@
 <template>
-  <div class="columns">
+  <div class="columns is-variable is-6">
     <div class="column">
       <div class="tw-">
         <p class="tw-text-2xl"> {{ product.name }} </p>
         <hr class="tw-my-2 tw-mx-0 tw-bg-orange-primary tw-h-1 img-width">
         <p class="tw-text-xl"> {{ product.description }} </p>
-        <div class="tw-mt-4 md:tw-flex md:tw-justify-center md:tw-items-start lg:tw-justify-start">
+        <div class="tw-mt-4">
           <!-- align the image center on ipad size and make sure it isnt stretching down the y axis with flex-items-start -->
-          <img :src="product.image_path" class="img-size">
+          <img :src="product.image_path" class="img-width">
         </div>
       </div>
     </div><!-- end image column -->
