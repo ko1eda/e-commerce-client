@@ -5,7 +5,7 @@
         <div class="overlay tw-absolute tw-w-full tw-h-full"/>
 
         <div class="tw-flex tw-justify-center tw-items-center tw-absolute tw-w-full tw-h-full">
-          <p class="price tw-text-3xl tw-font-bold tw-text-white" v-text="'$' + product.price"/>
+          <p class="price tw-text-3xl tw-font-bold tw-text-white" v-text="product.price"/>
         </div><!-- end overlay screen and price -->
 
         <img :src="product.image_path" :class="['tw-inline-block tw-max-w-full tw-w-full ', height]">
