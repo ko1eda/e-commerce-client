@@ -1,5 +1,5 @@
 <template>
-  <div class="columns is-variable is-8">
+  <div class="columns is-variable is-6">
     <div class="column">
       <div class="tw-">
         <p class="tw-text-2xl"> {{ product.name }} </p>
@@ -14,48 +14,78 @@
       </div>
     </div><!-- end image column -->
   
-    <div class="column">
-      <div class="tw-px-2 tw-mt-8 lg:tw-mt-16">
-        <p class="tw-text-xl">Price</p>
-        <hr class="tw-my-2 tw-mx-0 tw-bg-grey-light tw-h-1 img-width">
-        <span class="tag is-large tw-font-sans tw-rounded-lg">{{ product.price }}</span>
-      </div>
+    <div class="column tw-flex tw-flex-col tw-justify-between tw-items-center ">
       <div class="tw-px-2 tw-mt-8 lg:tw-mt-16">
         <p class="tw-text-xl">Options</p>
         <hr class="tw-my-2 tw-mx-0 tw-bg-grey-light tw-h-1 img-width">
-        <span class="tag is-large tw-font-sans tw-rounded-lg">{{ $route.params.slug }}</span>
+        <!-- <span class="tag is-large tw-font-sans tw-rounded-lg">{{ $route.params.slug }}</span> -->
+
+  
+        <div id="variations-list" class="tw-mb-2" >
+          <Variation
+            v-for="(variations, type) in product.variations"
+            :key="type"
+            :type="type"
+            :variations="variations"
+            @option-clicked="displayVariation"/>
+        </div>
       </div>
+
+      <div class="">
+        <button class="button tw-w-48 hover:tw-shadow tw-shadow-inner tw-font-sans tw-bg-orange tw-font-semibold tw-text-white">Checkout {{ product.price }}</button>
+      </div>
+   
     </div>
   
   </div>
 </template>
 
 <script>
+import  Variation from '@/components/Product/ProductVariation';
+
 export default {
+
+  components : {
+    Variation
+  },
 
   data() {
     return {
-      product: null // will be bset by asyncData automaically before page loads
+      originalProduct: null,
+      product: null,
     };
   },
 
   // fetch necessary info with ajax display picture and item details
+  // create two new distinct data objects using the spread operator
  async asyncData({params, app}) {
     let {data} = await app.$axios.$get(app.endpoints.products + '/' + params.slug);
     
     return {
-      product: data
+      originalProduct: {...data},
+      product: {...data},
     };
- }
+ },
+
+  methods : {
+    displayVariation({ variation }) {
+      if (variation === 'Select an option') {
+        this.product = {...this.originalProduct};
+      } else {
+        this.product.price = variation.price;
+        this.product.image_path = variation.image_path;
+        this.product.name = this.originalProduct.name + ' ' + variation.name;
+      }
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import '~bulma/sass/utilities/mixins.sass';
   .img-width {
-     @include mobile {
-        width: 100%;
-     }
+      width: 100%;
+    
      @include desktop {
         width: 640px;
      }

@@ -24,7 +24,7 @@ a {
 // Bulma components use !important so all style overrides have to go before the component imports
 @import '../scss/bulma/navbar-override';
 @import '../scss/bulma/breadcrumb-override';
-
+@import '../scss/bulma/form-override';
 
 
 @tailwind components;
