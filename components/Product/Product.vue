@@ -11,8 +11,8 @@
         <img :src="product.image_path" :class="['tw-inline-block tw-max-w-full tw-w-full ', height]">
       </div><!-- end image section -->
 
-      <div class="tw-px-4 tw-leading-tight tw-h-24 tw-flex tw-flex-col tw-justify-center">
-        <p class="tw-text-xl xl:tw-text-2xl tw-font-light" v-text="product.name"/>
+      <div class="tw-px-4 tw-py-2 tw-leading-tight tw-h-24 tw-flex tw-flex-col tw-justify-center">
+        <p class="tw-text-lg xl:tw-text-xl tw-font-light" v-text="product.name"/>
         <p class="tw-font-light tw-mt-2" v-text="product.description"/>
       </div>
       
