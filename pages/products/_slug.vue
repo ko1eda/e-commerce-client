@@ -6,36 +6,31 @@
         <hr class="tw-my-2 tw-mx-0 tw-bg-orange-primary tw-h-1 img-width">
         <p class="tw-text-xl"> {{ product.description }} </p>
         <div class="tw-mt-4 ">
-          <!-- align the image center on ipad size and make sure it isnt stretching down the y axis with flex-items-start -->
+
           <figure class="image is-4by3">
             <img :src="product.image_path">
           </figure>
+          
         </div>
       </div>
     </div><!-- end image column -->
   
-    <div class="column tw-flex tw-flex-col tw-justify-between tw-items-center ">
-      <div class="tw-px-2 tw-mt-8 lg:tw-mt-16">
+    <div class="column ">
+      <div class="tw-px-2 lg:tw-mt-12">
         <p class="tw-text-xl">Options</p>
         <hr class="tw-my-2 tw-mx-0 tw-bg-grey-light tw-h-1 img-width">
-        <!-- <span class="tag is-large tw-font-sans tw-rounded-lg">{{ $route.params.slug }}</span> -->
 
-  
-        <div id="variations-list" class="tw-mb-2" >
+        <form id="variations-list" action="" class="" >
           <Variation
             v-for="(variations, type) in product.variations"
             :key="type"
             :type="type"
             :variations="variations"
-            @option-clicked="displayVariation"/>
-        </div>
+            :selected-type="selectedType"
+            @input="displayVariation"/>
+        </form>
       </div>
-
-      <div class="">
-        <button class="button tw-w-48 hover:tw-shadow tw-shadow-inner tw-font-sans tw-bg-orange tw-font-semibold tw-text-white">Checkout {{ product.price }}</button>
-      </div>
-   
-    </div>
+    </div><!-- end options column -->
   
   </div>
 </template>
@@ -49,10 +44,12 @@ export default {
     Variation
   },
 
+  // selectedType: the selected variation option
   data() {
     return {
       originalProduct: null,
       product: null,
+      selectedType: ''
     };
   },
 
@@ -68,14 +65,15 @@ export default {
  },
 
   methods : {
-    displayVariation({ variation }) {
-      if (variation === 'Select an option') {
-        this.product = {...this.originalProduct};
-      } else {
-        this.product.price = variation.price;
-        this.product.image_path = variation.image_path;
-        this.product.name = this.originalProduct.name + ' ' + variation.name;
-      }
+    displayVariation({ variation, type }) {
+      this.selectedType = type; 
+      // if (variation === 'Select an option') {
+      //   this.product = {...this.originalProduct};
+      // } else {
+      //   this.product.price = variation.price;
+      //   this.product.image_path = variation.image_path;
+      //   // this.product.name = this.originalProduct.name + ' ' + variation.name;
+      // }
     }
   }
 };
