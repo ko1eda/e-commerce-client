@@ -27,7 +27,8 @@
             :type="type"
             :variations="variations"
             :selected-type="selectedType"
-            @input="displayVariation"/>
+            @input-variation="displayVariation"
+            @input-stock="( {stock} ) => selectedStock = stock"/> <!-- Set the selected stock to the stock paramter emited from event-->
         </form>
       </div>
     </div><!-- end options column -->
@@ -49,7 +50,8 @@ export default {
     return {
       originalProduct: null,
       product: null,
-      selectedType: ''
+      selectedType: '',
+      selectedStock: 0
     };
   },
 
