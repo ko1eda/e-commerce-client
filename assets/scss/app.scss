@@ -46,7 +46,11 @@ a {
 @import "~bulma/sass/elements/container.sass";
 @import "~bulma/sass/elements/image.sass";
 
+
 // Custom Components
+.ck-tag { 
+    @apply .tw-bg-grey-light .tw-p-2 .tw-rounded ;
+}
 
 
 @tailwind utilities;

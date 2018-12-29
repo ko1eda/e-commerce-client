@@ -20,16 +20,25 @@
         <p class="tw-text-xl">Options</p>
         <hr class="tw-my-2 tw-mx-0 tw-bg-grey-light tw-h-1 img-width">
 
-        <form id="variations-list" action="" class="" >
-          <Variation
-            v-for="(variations, type) in product.variations"
-            :key="type"
-            :type="type"
-            :variations="variations"
-            :selected-type="selectedType"
-            @input-variation="displayVariation"
-            @input-stock="( {stock} ) => selectedStock = stock"/> <!-- Set the selected stock to the stock paramter emited from event-->
-        </form>
+        <template v-if="product.in_stock">
+          <form id="variations-list" action="" class="" >
+            <Variation
+              v-for="(variations, type) in product.variations"
+              :key="type"
+              :type="type"
+              :variations="variations"
+              :selected-type="selectedType"
+              @input-variation="displayVariation"
+              @input-stock="({stock}) => selectedStock = stock"/> <!-- Set the selected stock to the stock paramter emited from event-->
+          </form>
+        </template><!-- end if the product has any variations in stock -->
+        
+        <template v-else>
+          <div class="tw-mt-4">
+            <span class="ck-tag">Out of stock</span>
+          </div>
+        </template><!-- end v-else; out of stock tag -->
+
       </div>
     </div><!-- end options column -->
   
@@ -46,36 +55,36 @@ export default {
   },
 
   // selectedType: the selected variation option
+  // selectedStock: the selected amount of stock 
   data() {
     return {
-      originalProduct: null,
       product: null,
       selectedType: '',
-      selectedStock: 0
+      selectedStock: 0, 
+      selectedVariation: null
     };
   },
 
-  // fetch necessary info with ajax display picture and item details
-  // create two new distinct data objects using the spread operator
+  // fetch necessary info with ajax 
  async asyncData({params, app}) {
     let {data} = await app.$axios.$get(app.endpoints.products + '/' + params.slug);
     
     return {
-      originalProduct: {...data},
-      product: {...data},
+      product: data,
     };
  },
 
+/**
+ * displayVariation : pull the variation and its type
+ *  off of the event, update the image path of the item with 
+ *  any variation image path and update the selected type property.
+ * 
+ */
   methods : {
-    displayVariation({ variation, type }) {
+    handleInputVariation({ variation, type }) {
+      this.selectedVariation = variation; 
       this.selectedType = type; 
-      // if (variation === 'Select an option') {
-      //   this.product = {...this.originalProduct};
-      // } else {
-      //   this.product.price = variation.price;
-      //   this.product.image_path = variation.image_path;
-      //   // this.product.name = this.originalProduct.name + ' ' + variation.name;
-      // }
+      this.product.image_path = variation.image_path;
     }
   }
 };
