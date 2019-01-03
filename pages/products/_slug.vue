@@ -28,7 +28,7 @@
               :type="type"
               :variations="variations"
               :selected-type="selectedType"
-              @input-variation="displayVariation"
+              @input-variation="handleInputVariation"
               @input-stock="({stock}) => selectedStock = stock"/> <!-- Set the selected stock to the stock paramter emited from event-->
           </form>
         </template><!-- end if the product has any variations in stock -->
