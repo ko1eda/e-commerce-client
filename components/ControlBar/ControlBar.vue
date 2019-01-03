@@ -97,6 +97,8 @@ export default {
    */
   watch: {
     '$route.path': function () {
+      this.breadcrumbs = this.$route.path.split('/');
+      
       this.displaySlider();
       this.displayCrumbs();
     }
