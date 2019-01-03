@@ -48,9 +48,9 @@
 
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Username
-          </a>
+          <nuxt-link :to="{name: 'login', path: '/login'}" class="navbar-link">
+            Sign in
+          </nuxt-link>
 
           <div class="navbar-dropdown is-boxed is-right ">
             <a class="navbar-item" href="#">Order History</a>
