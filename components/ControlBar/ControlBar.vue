@@ -1,6 +1,6 @@
 <template>
   <div class="tw-w-100 tw-mb-6 md:tw-mb-8 tw-flex tw-justify-between tw-items-center">
-    <nav class="breadcrumb tw-mb-0 tw--ml-2" aria-label="breadcrumbs">
+    <nav v-if="displayCrumbs()" class="breadcrumb tw-mb-0 tw--ml-2" aria-label="breadcrumbs">
       <ul class="tw-pl-0">
         <template v-for="(breadcrumb, index) in breadcrumbs" >
           <template v-if="index !== breadcrumbs.length - 1">
@@ -56,23 +56,36 @@
 
 <script>
 import Slider from '@/components/Shared/Slider/GridSlider';
+import RouteGuard from '@/components/Shared/Guard/RouteGuard.js';
+
 import { mapActions, mapGetters } from 'vuex';
 
-export default {
+export default { 
   components : {
     Slider
   },
 
+  // Expose routeInList method for whitelisting/blacklisting routes
+  mixins: [RouteGuard],
+
   data() {
     return {
       breadcrumbs: this.$route.path.split('/'),
-      sliderDisplayPaths: [
-        'categories/',
+
+      // display slider for only these paths (whitelist)
+      sliderWhiteList: [
+        'categories/*',
+      ],
+
+      // Hide crumb view for these paths (black list)
+      crumbBlackList: [
+        '/',
+        'login',
+        'register'
       ]
 
     };
   },
-
 
   /**
    * Watch the route path and if it changes, change the breadcrumbs to match
@@ -84,11 +97,8 @@ export default {
    */
   watch: {
     '$route.path': function () {
-      this.breadcrumbs = this.$route.path.split('/');
-
-      // revaluate wheather to display the slider
-      // each time the path changes 
       this.displaySlider();
+      this.displayCrumbs();
     }
   },
 
@@ -101,24 +111,15 @@ export default {
       setGridSize: 'setGridSize'
     }),
     
-
-   displaySlider() {
-     // For each breadcrumb in the array ex: ['', 'categories', 'shoes']
-     // If it is not in the list of paths to display, return false : true
-      return this.breadcrumbs.some((crumb, index) => {
-        // adds a '/' in front to match the paths in sliderDispalyPaths
-        crumb += '/';
-
-        // Loop through each allowd slider path,
-        // If one of the parts of the route is in this path
-        // it will return a match, and the slider will be hidden
-        return this.sliderDisplayPaths.some((path, index) => {
-          if(path === crumb ) return true;
-          return false;
-        });
-      });
+    // display slider for every path in the whitelist
+    displaySlider() {
+      return this.routeInList(this.sliderWhiteList);
     },
 
+    // display crumbs for every path not in the blacklist
+    displayCrumbs() {
+      return ! this.routeInList(this.crumbBlackList);
+    },
 
     /**
      * Returns the reduced string
@@ -126,7 +127,6 @@ export default {
      * so if breadcrumbs = [items,categories,shoes]
      * then the first path would be /items
      * then /items/categories etc tc 
-     * 
      */
     path(index) {
       let path= this.breadcrumbs.slice(index, index + 1).reduce((prev, next) => {
@@ -135,8 +135,6 @@ export default {
 
        return path;
     } 
-   
-    
   },
 };
 </script>
