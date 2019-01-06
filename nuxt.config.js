@@ -42,8 +42,34 @@ module.exports = {
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+
+
+  auth : {
+    strategies: {
+      local: {
+        endpoints: {
+          // login 
+          login: {
+            url: 'auth/login',
+            method: 'post',
+            propertyName: 'meta.token'
+          },
+
+          // User infodon
+          user : {
+            url: 'auth/me',
+            method: 'get',
+            propertyName: 'data'
+          }
+
+        }
+      }
+    }
+  },
+
 
   /*
   ** Axios module configuration
