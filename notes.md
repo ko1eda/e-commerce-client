@@ -27,6 +27,9 @@
 + as this will continue to update the data, which will then re-render recalling your function, which will re-update the data.... 
    + https://github.com/vuejs-tips/v-money/issues/53
 + https://router.vuejs.org/guide/essentials/dynamic-matching.html
++ Setting up blacklist and whitelist in RouteGuard.js 
+   + https://stackoverflow.com/questions/3172985/javascript-use-variable-in-string-match
+   + https://stackoverflow.com/questions/2973436/regex-lookahead-lookbehind-and-atomic-groups
 
 ### Misc.
  + Color palette ideas -> http://paletton.com/#uid=73U260kiEH08cVSdVOZmHzfrtuj

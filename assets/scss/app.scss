@@ -24,7 +24,7 @@ a {
 // Bulma components use !important so all style overrides have to go before the component imports
 @import '../scss/bulma/navbar-override';
 @import '../scss/bulma/breadcrumb-override';
-
+@import '../scss/bulma/form-override';
 
 
 @tailwind components;
@@ -45,8 +45,13 @@ a {
 @import "~bulma/sass/elements/tag.sass";
 @import "~bulma/sass/elements/container.sass";
 @import "~bulma/sass/elements/image.sass";
+@import "~bulma/sass/elements/icon.sass";
+
 
 // Custom Components
+.ck-tag { 
+    @apply .tw-bg-grey-light .tw-p-2 .tw-rounded ;
+}
 
 
 @tailwind utilities;

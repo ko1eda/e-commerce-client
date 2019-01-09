@@ -46,29 +46,37 @@
         </div><!-- end Categories drop down -->
       </div><!-- end navbar start -->
 
-      <div class="navbar-end">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Username
-          </a>
+      <div class="navbar-end"> 
+        <template v-if="$auth.loggedIn !== true">
+          <nuxt-link :to="{name: 'login', path: '/login'}" class="navbar-item">
+            Sign in
+          </nuxt-link>
+        </template><!-- end sign in link -->
 
-          <div class="navbar-dropdown is-boxed is-right ">
-            <a class="navbar-item" href="#">Order History</a>
-            <hr class="navbar-divider">
-            <a class="navbar-item" href="#">Sign out</a>
+        <template v-else>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"> {{ $auth.user.name }} </a>
+  
+            <div class="navbar-dropdown is-boxed is-right ">
+              <a class="navbar-item" href="#">Order History</a>
+              <hr class="navbar-divider">
+              <a class="navbar-item" href="#">Sign out</a>
+            </div>
           </div>
-        </div>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">Cart</a>
-          <div class="navbar-dropdown is-boxed is-right">
-            <a class="navbar-item" href="#">Item 1</a>
-            <hr class="navbar-divider">
-            <a class="navbar-item" href="#">Total: $15.99</a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-item"><i class="fas fa-shopping-cart tw-text-grey-dark"/></a>
+            <div class="navbar-dropdown is-boxed is-right">
+              <a class="navbar-item" href="#">Item 1</a>
+              <hr class="navbar-divider">
+              <a class="navbar-item" href="#">Total: $15.99</a>
+            </div>
           </div>
-        </div>
+        </template><!-- end logged in menu -->
 
       </div>
+
     </div>
   </nav>
 </template>
