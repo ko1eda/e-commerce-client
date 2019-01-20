@@ -1,6 +1,6 @@
 export const state = () => ({
   categories: [],
-  gridSize : 3
+  gridSize : 3,
 });
 
 /**
@@ -9,7 +9,8 @@ export const state = () => ({
  */
 export const getters = {
   categories: (state) => state.categories,
-  gridSize: (state) => state.gridSize
+  gridSize: (state) => state.gridSize,
+  cartItems: (state) => state.cartItems
 };
 
 /**
@@ -38,14 +39,20 @@ export const mutations = {
  * 
  */
 export const actions = {
-  async nuxtServerInit({ commit }, { $axios }) {
+  async nuxtServerInit({ commit, dispatch }, { $axios}) {
     let {data} = await $axios.$get('categories');
     
     commit('SET_CATEGORIES', data);
+
+    // If the user is logged in the fetch their cart
+    // note: cart/ is the namespace for our cart vuex store module
+    if (this.$auth.loggedIn) {
+      await dispatch('cart/getCart');
+    }
   },
 
-  setGridSize({commit}, size) {
 
+  setGridSize({commit}, size) {
     commit('SET_GRID_SIZE', size);
   }
 };

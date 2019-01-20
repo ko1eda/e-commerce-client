@@ -64,15 +64,8 @@
             </div>
           </div>
 
+          <Cart /><!-- end cart navbaritem  -->
 
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-item"><i class="fas fa-shopping-cart tw-text-grey-dark"/></a>
-            <div class="navbar-dropdown is-boxed is-right">
-              <a class="navbar-item" href="#">Item 1</a>
-              <hr class="navbar-divider">
-              <a class="navbar-item" href="#">Total: $15.99</a>
-            </div>
-          </div>
         </template><!-- end logged in menu -->
 
       </div>
@@ -84,19 +77,21 @@
 <script>
 import {mapGetters} from 'vuex';
 import TreeList from './NestedDropdown';
+import Cart from './Cart';
+
 export default {
   components : {
-    TreeList
+    TreeList,
+    Cart 
   },
+
   computed : {
     ...mapGetters({
-      categories : 'categories' 
+      categories : 'categories',
     })
   },
-
-  
-
 };
+
 </script>
 
 <style lang="scss" scoped>
@@ -108,6 +103,20 @@ export default {
   position: absolute;
   top: 14px;
   left: 16px;
+}
+
+.badge-size {
+  height: 1.1rem;
+  width: 1.1rem;
+}
+
+.badge-pos {
+  top: 28px;
+  left: 23px;
+}
+
+.cart-width {
+  // width: 400px;
 }
 
 </style>
