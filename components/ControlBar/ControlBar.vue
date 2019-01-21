@@ -81,7 +81,8 @@ export default {
       crumbBlackList: [
         '/',
         'login',
-        'register'
+        'register',
+        'cart'
       ]
 
     };

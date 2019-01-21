@@ -64,7 +64,13 @@
             </div>
           </div>
 
-          <Cart /><!-- end cart navbaritem  -->
+          <!-- cart -->
+          
+          <CartWidget/>
+
+          <!-- end cart -->
+          
+          <!-- end cart navbaritem  -->
 
         </template><!-- end logged in menu -->
 
@@ -77,12 +83,12 @@
 <script>
 import {mapGetters} from 'vuex';
 import TreeList from './NestedDropdown';
-import Cart from './Cart';
+import CartWidget from './CartWidget';
 
 export default {
   components : {
     TreeList,
-    Cart 
+    CartWidget
   },
 
   computed : {

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1 class="tw-text-3xl tw-font-light tw-mb-4" v-text="$auth.user.name + '\'s' + ' Cart:'"/>
     <div class="tw-bg-grey-light tw-rounded tw-mb-4 tw-p-4 sm:tw-p-12">
       <template v-for="(product, index) in products" >
         

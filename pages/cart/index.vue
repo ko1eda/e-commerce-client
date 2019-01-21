@@ -1,5 +1,8 @@
 <template>
-  <CartOverview :products="products"/>
+  <div class="tw--mt-4">
+    <h1 class="tw-text-2xl tw-font-light tw-mb-4" v-text="$auth.user.name + '\'s' + ' Cart:'"/>
+    <CartOverview :products="products"/>
+  </div>
 </template>
 
 <script>

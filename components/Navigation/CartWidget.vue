@@ -32,7 +32,7 @@
       </a>
 
       <hr class="navbar-divider">
-      <a class="navbar-item tw-flex tw-justify-center tw-font-sans tw-text-lg tw-font-light tw-px-0" href="#">Open Cart</a>
+      <nuxt-link :to="{name: 'cart'}" tag="a" class="navbar-item tw-flex tw-justify-center tw-font-sans tw-text-lg tw-font-light tw-px-0" href="#">Open Cart</nuxt-link>
     </div>
 
   </div>
