@@ -7,6 +7,7 @@ export default ({ app }, inject) => {
   // Set the function directly on the context.app object
   app.endpoints = {
     categories: 'categories',
-    products: 'products'
+    products: 'products',
+    cart: 'cart'
   };
 };

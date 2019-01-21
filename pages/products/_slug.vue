@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import  Variation from '@/components/Product/ProductVariation';
+import Variation from '@/components/Product/ProductVariation';
 
 export default {
 
